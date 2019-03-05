@@ -1,0 +1,4 @@
+##########################################################
+##########################################################
+Before start the app make sure installed json-server (npm module) globaly into 
+the system and run todo.json api file run using that json-server (sample todo.json file has been provided in directory). Make your day beautiful . Thanks 

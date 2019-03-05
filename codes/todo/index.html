@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>NG1 App</title>
+</head>
+
+<body>
+    <div ng-app="todo-app">
+        <div ng-controller="todosCtrl">
+            <ul>
+                <li ng-repeat="item in list">
+                    <div>
+                        {{item.title}}
+                        <small><span class="status">{{item.status}} </span></small>
+                        <small><span class="status" ng-click=editTodo(item)>Edit</span></small>
+                        <small><span class="status" ng-click="deleteTodo(item.id)">Delete</span></small>
+                    </div>
+                </li>
+            </ul>
+
+
+            <div class="form">
+                <form ng-submit="addTodo()">
+                    <div>
+                        <input type="text" name="title" id="title" ng-model="todo.title" required>
+                    </div>
+                    <div>
+                        <select name="status" id="status" ng-model="todo.status">
+                            <option value="complete"> Complete</option>
+                            <option value="progress"> Progress</option>
+                            <option value="pending"> Pending</option>
+                        </select>
+                    </div>
+                    <div>
+                        <button type="submit" ng-show="show">Add</button>
+                        <button type="button" ng-show="!show" ng-click="updateTodo()">Update</button>
+                        <button type="button" ng-show="!show" ng-click="cancelUpdate()">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.7/angular.min.js'></script>
+    <script src='./scripts/app.js'></script>
+</body>
+
+</html>
